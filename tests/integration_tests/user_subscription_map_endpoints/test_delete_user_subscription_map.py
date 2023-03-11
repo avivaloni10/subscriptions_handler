@@ -1,0 +1,20 @@
+from unittest.mock import patch
+
+from models.user_subscription_map import UserSubscriptionMap
+from tests.integration_tests.user_subscription_map_endpoints.utils import *
+
+
+@patch(DELETE_USER_SUBSCRIPTION_MAP_BY_USER_EMAIL_SUBSCRIPTION_NAME_IMPORT_PATH)
+@patch(GET_USER_SUBSCRIPTION_MAP_BY_USER_EMAIL_SUBSCRIPTION_NAME_IMPORT_PATH)
+def test_delete_user_subscription_map(get_user_subscription_map_by_user_email_subscription_name_mock, delete_user_subscription_map_by_user_email_subscription_name_mock) -> None:
+    get_user_subscription_map_by_user_email_subscription_name_mock.return_value = UserSubscriptionMap(**USER_SUBSCRIPTION_MAP_DETAILS)
+    delete_user_subscription_map_by_user_email_subscription_name_mock.return_value = None
+
+    validate_user_subscription_map_deletion(USER_SUBSCRIPTION_MAP_DETAILS)
+
+
+@patch(GET_USER_SUBSCRIPTION_MAP_BY_USER_EMAIL_SUBSCRIPTION_NAME_IMPORT_PATH)
+def test_delete_user_subscription_map_user_subscription_map_not_exists(get_user_subscription_map_by_user_email_subscription_name_mock) -> None:
+    get_user_subscription_map_by_user_email_subscription_name_mock.return_value = None
+
+    validate_user_subscription_map_deletion(USER_SUBSCRIPTION_MAP_DETAILS, expected_status_code=404, expected_result={"detail": "UserSubscriptionMap not found"})
