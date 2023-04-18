@@ -7,8 +7,10 @@ def get_user_subscription_maps(db: Session, skip: int = 0, limit: int = 100):
     return db.query(UserSubscriptionMap).offset(skip).limit(limit).all()
 
 
-def get_user_subscriptions_user_email(db: Session, user_email: str):
-    return db.query(UserSubscriptionMap).filter(UserSubscriptionMap.user_email == user_email).first()
+def get_user_subscriptions_by_user_email(db: Session, user_email: str, skip: int = 0, limit: int = 100):
+    return db.query(UserSubscriptionMap).filter(
+        UserSubscriptionMap.user_email == user_email
+    ).offset(skip).limit(limit).all()
 
 
 def get_subscription_users_by_subscription_name(db: Session, subscription_name: str):

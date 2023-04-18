@@ -2,6 +2,7 @@ from fastapi import FastAPI
 
 from routers import subscriptions_router
 from routers import user_subscription_maps_router
+from routers import users_map_router
 from config.db import engine
 from models import user
 from models import subscription
@@ -29,4 +30,8 @@ app.include_router(
 
 app.include_router(
     user_subscription_maps_router.router, prefix="/user_subscription_maps", tags=["user_subscription_maps"]
+)
+
+app.include_router(
+    users_map_router.router, prefix="/users_map", tags=["users_map"]
 )
