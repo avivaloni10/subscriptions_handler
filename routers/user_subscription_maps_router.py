@@ -79,3 +79,14 @@ async def delete_by_user_email_subscription_name(
     )
 
     return Response(code=200, status="OK", message="UserSubscriptionMap deleted successfully").dict(exclude_none=True)
+
+
+@router.get("/{user_email}")
+async def get_by_user_email(user_email: str, db: Session = Depends(get_db)):
+    user_subscription_map = user_subscription_map_crud.get_user_subscription_map_by_user_email(db, user_email)
+
+    if not user_subscription_map:
+        raise HTTPException(status_code=404, detail="UserSubscriptionMap not found")
+    return Response(
+        code=200, status="OK", message="UserSubscriptionMap fetched successfully", result=user_subscription_map
+    ).dict(exclude_none=True)

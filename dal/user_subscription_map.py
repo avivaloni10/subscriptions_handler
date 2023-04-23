@@ -21,6 +21,10 @@ def get_user_subscription_map_by_user_email_subscription_name(db: Session, user_
     return db.query(UserSubscriptionMap).filter(UserSubscriptionMap.user_email == user_email).filter(UserSubscriptionMap.subscription_name == subscription_name).first()
 
 
+def get_user_subscription_map_by_user_email(db: Session, user_email: str):
+    return db.query(UserSubscriptionMap).filter(UserSubscriptionMap.user_email == user_email).first()
+
+
 def create_user_subscription_map(db: Session, user_subscription_map: UserSubscriptionMapSchema):
     new_user_subscription_map = UserSubscriptionMap(
         subscription_name=user_subscription_map.subscription_name,
