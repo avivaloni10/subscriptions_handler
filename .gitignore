@@ -4,3 +4,13 @@ tests/.pytest_cache
 tests/integration_tests/.pytest_cache
 tests/integration_tests/subscription_endpoints/.pytest_cache
 tests/integration_tests/user_subscription_map_endpoints/.pytest_cache
+
+tests\integration_tests\subscription_endpoints\__pycache__\test_delete_subscription.cpython-311-pytest-7.2.1.pyc
+tests\integration_tests\subscription_endpoints\__pycache__\test_get_subscription.cpython-311-pytest-7.2.1.pyc
+tests\integration_tests\subscription_endpoints\__pycache__\test_update_subscription.cpython-311-pytest-7.2.1.pyc
+tests\integration_tests\subscription_endpoints\__pycache__\utils.cpython-311.pyc
+tests\integration_tests\user_subscription_map_endpoints\__pycache__\test_create_user_subscription_map.cpython-311-pytest-7.2.1.pyc
+tests\integration_tests\user_subscription_map_endpoints\__pycache__\test_delete_user_subscription_map.cpython-311-pytest-7.2.1.pyc
+tests\integration_tests\user_subscription_map_endpoints\__pycache__\test_get_user_subscription_map.cpython-311-pytest-7.2.1.pyc
+tests\integration_tests\user_subscription_map_endpoints\__pycache__\test_update_user_subscription_map.cpython-311-pytest-7.2.1.pyc
+tests\integration_tests\user_subscription_map_endpoints\__pycache__\utils.cpython-311.pyc
