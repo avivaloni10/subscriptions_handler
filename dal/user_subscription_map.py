@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 from models.user_subscription_map import UserSubscriptionMap
 from schemas.user_subscription_map_schemas import UserSubscriptionMapSchema
-
+import datetime
 
 def get_user_subscription_maps(db: Session, skip: int = 0, limit: int = 100):
     return db.query(UserSubscriptionMap).offset(skip).limit(limit).all()
@@ -33,7 +33,7 @@ def create_user_subscription_map(db: Session, user_subscription_map: UserSubscri
         card_number=user_subscription_map.card_number,
         cvv=user_subscription_map.cvv,
         start_date=user_subscription_map.start_date,
-        expiration_date=user_subscription_map.expiration_date,
+        expiration_date=datetime.datetime.fromisoformat(str(user_subscription_map.expiration_date)),
     )
     db.add(new_user_subscription_map)
     db.commit()
