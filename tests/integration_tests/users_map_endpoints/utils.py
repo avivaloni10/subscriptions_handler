@@ -1,16 +1,13 @@
 import datetime
 from typing import Dict, Optional
 
+from sqlalchemy.exc import IntegrityError
 from starlette.testclient import TestClient
 from main import app
 
 client = TestClient(app)
 
-CREATE_USER_SUBSCRIPTION_MAP_IMPORT_PATH = "dal.user_subscription_map.create_user_subscription_map"
-GET_USER_SUBSCRIPTION_MAP_BY_USER_EMAIL_SUBSCRIPTION_NAME_IMPORT_PATH = "dal.user_subscription_map.get_user_subscription_map_by_user_email_subscription_name"
-GET_USER_SUBSCRIPTION_MAPS_IMPORT_PATH = "dal.user_subscription_map.get_user_subscription_maps"
-UPDATE_USER_SUBSCRIPTION_MAP_BY_USER_EMAIL_SUBSCRIPTION_NAME_IMPORT_PATH = "dal.user_subscription_map.update_user_subscription_map_by_user_email_subscription_name"
-DELETE_USER_SUBSCRIPTION_MAP_BY_USER_EMAIL_SUBSCRIPTION_NAME_IMPORT_PATH = "dal.user_subscription_map.delete_user_subscription_map_by_user_email_subscription_name"
+GET_SUBSCRIPTIONS_BY_USER_EMAIL_IMPORT_PATH = "dal.user_subscription_map.get_user_subscriptions_by_user_email"
 
 USER_SUBSCRIPTION_MAP_DETAILS = {
     'subscription_name': 'a',

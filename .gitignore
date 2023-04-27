@@ -4,3 +4,4 @@ tests/.pytest_cache
 tests/integration_tests/.pytest_cache
 tests/integration_tests/subscription_endpoints/.pytest_cache
 tests/integration_tests/user_subscription_map_endpoints/.pytest_cache
+tests/integration_tests/users_map_endpoints/.pytest_cache
