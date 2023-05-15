@@ -4,6 +4,8 @@ import pytest
 
 from copy import deepcopy
 
+from sqlalchemy.exc import IntegrityError
+
 from models.user_subscription_map import UserSubscriptionMap
 from tests.integration_tests.user_subscription_map_endpoints.utils import *
 

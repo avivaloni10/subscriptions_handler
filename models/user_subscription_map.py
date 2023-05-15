@@ -13,5 +13,5 @@ class UserSubscriptionMap(Base):
     card_owner_id = Column(String, nullable=False)
     card_number = Column(String, nullable=False)
     cvv = Column(String, nullable=False)
-    start_date = Column(DateTime, default=datetime.datetime.now().timestamp(), nullable=False)
-    expiration_date = Column(DateTime, default=(datetime.datetime.now() + datetime.timedelta(6 * 30)).timestamp(), nullable=False)
+    start_date = Column(DateTime, default=datetime.datetime.now(), nullable=False)
+    expiration_date = Column(DateTime, default=(datetime.datetime.now() + datetime.timedelta(6 * 30)), nullable=False)
